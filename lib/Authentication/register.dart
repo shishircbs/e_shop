@@ -71,19 +71,19 @@ class _RegisterState extends State<Register> {
                       ),
                       CustomTextField(
                         controller: _emailTextEditingController,
-                        data: Icons.person,
+                        data: Icons.mail,
                         hintText: "Email",
                         isObsecure: false,
                       ),
                       CustomTextField(
                         controller: _passwordTextEditingController,
-                        data: Icons.person,
+                        data: Icons.lock,
                         hintText: "Password",
                         isObsecure: true,
                       ),
                       CustomTextField(
                         controller: _cPasswordTextEditingController,
-                        data: Icons.person,
+                        data: Icons.lock_outlined,
                         hintText: "Confirm Password",
                         isObsecure: true,
                       ),

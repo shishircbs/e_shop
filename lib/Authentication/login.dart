@@ -50,7 +50,7 @@ class _LoginState extends State<Login> {
                   children: [
                     CustomTextField(
                       controller: _emailTextEditingController,
-                      data: Icons.person,
+                      data: Icons.mail,
                       hintText: "Email",
                       isObsecure: false,
                     ),
