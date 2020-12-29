@@ -119,8 +119,7 @@ class _LoginState extends State<Login> {
         .signInWithEmailAndPassword(
       email: _emailTextEditingController.text.trim(),
       password: _passwordTextEditingController.text.trim(),
-    )
-        .then((authUser) {
+    ).then((authUser) {
       firebaseUser = authUser.user;
     }).catchError((error) {
       Navigator.pop(context);

@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:e_shop/Counters/BookQuantity.dart';
+import 'package:e_shop/Counters/ItemQuantity.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -24,13 +24,22 @@ EcommerceApp.firestore=Firestore.instance;
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (c)=>CartItemCounter()),
+        ChangeNotifierProvider(create: (c)=>ItemQuantity()),
+        ChangeNotifierProvider(create: (c)=>AddressChanger()),
+        ChangeNotifierProvider(create: (c)=>TotalAmount()),
+
+      ],
+        child: MaterialApp(
             title: 'e-Shop',
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               primaryColor: Colors.green,
             ),
             home: SplashScreen()
+        ),
     );
   }
 }
@@ -49,7 +58,7 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   displaySplash(){
-    Timer(Duration(seconds:5),()async {
+    Timer(Duration(seconds:1),()async {
 if(await EcommerceApp.auth.currentUser()!=null){
   Route route = MaterialPageRoute(builder: (_)=>StoreHome());
   Navigator.pushReplacement(context, route);
